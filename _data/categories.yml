@@ -1,0 +1,19 @@
+- id: engineering
+  name: Engineering
+  description: Engineering papers and resources
+  icon: cogs
+
+- id: medical
+  name: Medical Sciences
+  description: Medical papers and resources
+  icon: heartbeat
+
+- id: computer-science
+  name: Computer Science
+  description: Computer Science papers and resources
+  icon: laptop-code
+
+- id: physics
+  name: Physics
+  description: Physics papers and resources
+  icon: atom

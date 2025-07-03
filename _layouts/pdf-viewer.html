@@ -1,0 +1,107 @@
+---
+layout: default
+---
+
+{% assign subject_id = page.pdf_subject %}
+{% assign subject_data = site.data.subjects | where: "id", subject_id | first %}
+{% assign category_data = site.data.categories | where: "id", subject_data.category | first %}
+{% assign pdf_data = subject_data.pdfs | where: "file", page.pdf_file | first %}
+
+<div class="container">
+  <div class="breadcrumbs">
+    <a href="{{ '/' | relative_url }}">Home</a> &raquo;
+    <a href="{{ '/categories/' | relative_url }}">Categories</a> &raquo;
+    <a href="{{ '/categories/' | append: category_data.id | relative_url }}">{{ category_data.name }}</a> &raquo;
+    <a href="{{ '/subjects/' | append: subject_id | relative_url }}">{{ subject_data.name }}</a> &raquo;
+    <span>{{ pdf_data.title }}</span>
+  </div>
+  
+  <div class="pdf-viewer-header">
+    <h1 class="pdf-title">{{ pdf_data.title }}</h1>
+    <div class="pdf-meta">
+      <span class="pdf-subject">Subject: <a href="{{ '/subjects/' | append: subject_id | relative_url }}">{{ subject_data.name }}</a></span>
+      <span class="pdf-category">Category: <a href="{{ '/categories/' | append: category_data.id | relative_url }}">{{ category_data.name }}</a></span>
+      <span class="pdf-pages">{{ pdf_data.pages }} pages</span>
+      <span class="pdf-date">Added: {{ pdf_data.date | date: "%B %d, %Y" }}</span>
+    </div>
+    <div class="pdf-actions-bar">
+      <a href="{{ '/assets/pdfs/' | append: pdf_data.file | relative_url }}" class="btn-download" download>
+        <i class="fas fa-download"></i> Download PDF
+      </a>
+      <button id="fullscreen-btn" class="btn-fullscreen">
+        <i class="fas fa-expand"></i> Fullscreen
+      </button>
+      <button id="print-btn" class="btn-print">
+        <i class="fas fa-print"></i> Print
+      </button>
+    </div>
+  </div>
+  
+  <div class="pdf-viewer-container" id="pdf-viewer">
+    <iframe 
+      src="{{ '/assets/pdfs/' | append: pdf_data.file | relative_url }}" 
+      class="pdf-iframe" 
+      id="pdf-iframe"
+      frameborder="0"
+      width="100%"
+      height="800px"
+      allowfullscreen
+    ></iframe>
+  </div>
+  
+  <div class="pdf-navigation">
+    {% assign pdf_files = subject_data.pdfs %}
+    {% assign current_pdf = page.pdf_file %}
+    {% assign current_index = -1 %}
+    
+    {% for pdf in pdf_files %}
+      {% if pdf.file == current_pdf %}
+        {% assign current_index = forloop.index0 %}
+        {% break %}
+      {% endif %}
+    {% endfor %}
+    
+    {% if current_index > 0 %}
+      {% assign prev_index = current_index | minus: 1 %}
+      {% assign prev_pdf = pdf_files[prev_index] %}
+      <a href="{{ '/pdf-viewer/' | append: subject_id | append: '/' | append: prev_pdf.file | replace: '.pdf', '' | relative_url }}" class="nav-prev">
+        <i class="fas fa-arrow-left"></i> {{ prev_pdf.title }}
+      </a>
+    {% endif %}
+    
+    {% assign last_index = pdf_files.size | minus: 1 %}
+    {% if current_index < last_index %}
+      {% assign next_index = current_index | plus: 1 %}
+      {% assign next_pdf = pdf_files[next_index] %}
+      <a href="{{ '/pdf-viewer/' | append: subject_id | append: '/' | append: next_pdf.file | replace: '.pdf', '' | relative_url }}" class="nav-next">
+        {{ next_pdf.title }} <i class="fas fa-arrow-right"></i>
+      </a>
+    {% endif %}
+  </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const fullscreenBtn = document.getElementById('fullscreen-btn');
+  const printBtn = document.getElementById('print-btn');
+  const pdfIframe = document.getElementById('pdf-iframe');
+  
+  if (fullscreenBtn) {
+    fullscreenBtn.addEventListener('click', function() {
+      if (pdfIframe.requestFullscreen) {
+        pdfIframe.requestFullscreen();
+      } else if (pdfIframe.webkitRequestFullscreen) {
+        pdfIframe.webkitRequestFullscreen();
+      } else if (pdfIframe.mozRequestFullScreen) {
+        pdfIframe.mozRequestFullScreen();
+      }
+    });
+  }
+  
+  if (printBtn) {
+    printBtn.addEventListener('click', function() {
+      window.print();
+    });
+  }
+});
+</script>

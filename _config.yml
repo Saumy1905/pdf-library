@@ -1,0 +1,20 @@
+# Site settings
+url: "" # the base hostname & protocol for your site, e.g. http://example.com
+baseurl: "" # the subpath of your site, e.g. /blog
+title: "PDF Library" # the name of your site, e.g. ACME Corp.
+
+email: saumy1905@example.com
+description: >-
+  A PDF library with embedded viewers and download functionality
+
+# Build settings
+permalink: pretty
+
+# Collections
+collections:
+  subjects:
+    output: true
+    permalink: /:collection/:path/
+  categories:
+    output: true
+    permalink: /:collection/:path/

@@ -1,0 +1,42 @@
+---
+layout: default
+---
+
+{% assign subject_data = site.data.subjects | where: "id", page.subject_id | first %}
+{% assign category_data = site.data.categories | where: "id", subject_data.category | first %}
+
+<div class="container">
+  <div class="breadcrumbs">
+    <a href="{{ '/' | relative_url }}">Home</a> &raquo;
+    <a href="{{ '/categories/' | relative_url }}">Categories</a> &raquo;
+    <a href="{{ '/categories/' | append: category_data.id | relative_url }}">{{ category_data.name }}</a> &raquo;
+    <span>{{ subject_data.name }}</span>
+  </div>
+  
+  <div class="subject-header">
+    <h1 class="page-title">{{ subject_data.name }}</h1>
+    <p class="subject-description">{{ subject_data.description }}</p>
+    <p class="subject-meta">
+      <span class="subject-category">Category: <a href="{{ '/categories/' | append: category_data.id | relative_url }}">{{ category_data.name }}</a></span>
+      <span class="subject-count">{{ subject_data.pdfs.size }} PDF{% if subject_data.pdfs.size != 1 %}s{% endif %}</span>
+    </p>
+  </div>
+  
+  <div class="pdf-list">
+    {% for pdf in subject_data.pdfs %}
+      <div class="pdf-item">
+        <div class="pdf-info">
+          <h2 class="pdf-title">{{ pdf.title }}</h2>
+          <p class="pdf-meta">
+            <span class="pdf-pages">{{ pdf.pages }} pages</span>
+            <span class="pdf-date">Added: {{ pdf.date | date: "%B %d, %Y" }}</span>
+          </p>
+        </div>
+        <div class="pdf-actions">
+          <a href="{{ '/pdf-viewer/' | append: subject_data.id | append: '/' | append: pdf.file | replace: '.pdf', '' | relative_url }}" class="btn-view">View PDF</a>
+          <a href="{{ '/assets/pdfs/' | append: pdf.file | relative_url }}" class="btn-download" download>Download</a>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>

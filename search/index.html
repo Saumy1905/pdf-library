@@ -1,0 +1,30 @@
+---
+layout: default
+title: Search Results
+---
+
+<div class="container">
+  <div class="breadcrumbs">
+    <a href="{{ '/' | relative_url }}">Home</a> &raquo;
+    <span>Search</span>
+  </div>
+  
+  <div class="search-results-container">
+    <div class="search-header">
+      <h1 class="page-title">Search Results</h1>
+      <p class="search-info">Results for: <span id="search-query"></span></p>
+      
+      <form class="search-form-large">
+        <input type="text" id="search-input" name="q" placeholder="Search for PDFs...">
+        <button type="submit"><i class="fas fa-search"></i> Search</button>
+      </form>
+    </div>
+    
+    <div id="search-results" class="search-results">
+      <!-- Results will be populated by JavaScript -->
+      <div class="loading">
+        <i class="fas fa-spinner fa-spin"></i> Searching...
+      </div>
+    </div>
+  </div>
+</div>

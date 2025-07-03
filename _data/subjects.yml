@@ -1,0 +1,89 @@
+- id: data-structures
+  name: Data Structures
+  category: computer-science
+  description: Study of organizing and storing data
+  pdfs:
+    - title: Introduction to Data Structures
+      file: intro-to-data-structures.pdf
+      pages: 25
+      date: 2025-01-15
+    - title: Arrays and Linked Lists
+      file: arrays-linked-lists.pdf
+      pages: 32
+      date: 2025-02-10
+    - title: Trees and Graphs
+      file: trees-graphs.pdf
+      pages: 40
+      date: 2025-03-05
+
+- id: algorithms
+  name: Algorithms
+  category: computer-science
+  description: Study of computational problem-solving methods
+  pdfs:
+    - title: Algorithm Analysis
+      file: algorithm-analysis.pdf
+      pages: 28
+      date: 2025-01-20
+    - title: Sorting Algorithms
+      file: sorting-algorithms.pdf
+      pages: 35
+      date: 2025-02-18
+    - title: Graph Algorithms
+      file: graph-algorithms.pdf
+      pages: 42
+      date: 2025-03-15
+
+- id: mechanics
+  name: Mechanics
+  category: physics
+  description: Study of motion and forces
+  pdfs:
+    - title: Classical Mechanics
+      file: classical-mechanics.pdf
+      pages: 45
+      date: 2025-01-25
+    - title: Fluid Mechanics
+      file: fluid-mechanics.pdf
+      pages: 38
+      date: 2025-02-22
+    - title: Quantum Mechanics
+      file: quantum-mechanics.pdf
+      pages: 50
+      date: 2025-03-20
+
+- id: circuits
+  name: Circuit Theory
+  category: engineering
+  description: Study of electrical circuits
+  pdfs:
+    - title: Basic Circuit Analysis
+      file: basic-circuit-analysis.pdf
+      pages: 30
+      date: 2025-01-10
+    - title: AC Circuit Analysis
+      file: ac-circuit-analysis.pdf
+      pages: 36
+      date: 2025-02-05
+    - title: Digital Circuits
+      file: digital-circuits.pdf
+      pages: 44
+      date: 2025-03-08
+
+- id: anatomy
+  name: Anatomy
+  category: medical
+  description: Study of body structure
+  pdfs:
+    - title: Human Anatomy Basics
+      file: human-anatomy-basics.pdf
+      pages: 55
+      date: 2025-01-05
+    - title: Neuroanatomy
+      file: neuroanatomy.pdf
+      pages: 48
+      date: 2025-02-12
+    - title: Cardiovascular System
+      file: cardiovascular-system.pdf
+      pages: 40
+      date: 2025-03-18

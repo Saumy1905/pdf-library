@@ -1,0 +1,38 @@
+---
+layout: default
+title: Subjects
+---
+
+<div class="container">
+  <div class="breadcrumbs">
+    <a href="{{ '/' | relative_url }}">Home</a> &raquo;
+    <span>Subjects</span>
+  </div>
+  
+  <div class="page-header">
+    <h1 class="page-title">All Subjects</h1>
+    <p class="page-description">Browse through all available subjects</p>
+  </div>
+  
+  <div class="subject-filter">
+    <button class="filter-btn active" data-filter="all">All</button>
+    {% for category in site.data.categories %}
+      <button class="filter-btn" data-filter="{{ category.id }}">{{ category.name }}</button>
+    {% endfor %}
+  </div>
+  
+  <div class="subject-grid">
+    {% for subject in site.data.subjects %}
+      <div class="subject-card" data-category="{{ subject.category }}">
+        <h2 class="subject-title">{{ subject.name }}</h2>
+        <p class="subject-description">{{ subject.description }}</p>
+        <p class="subject-meta">
+          {% assign category = site.data.categories | where: "id", subject.category | first %}
+          <span class="subject-category">{{ category.name }}</span>
+          <span class="subject-count">{{ subject.pdfs.size }} PDF{% if subject.pdfs.size != 1 %}s{% endif %}</span>
+        </p>
+        <a href="{{ '/subjects/' | append: subject.id | relative_url }}" class="btn-view">View Subject</a>
+      </div>
+    {% endfor %}
+  </div>
+</div>

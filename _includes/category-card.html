@@ -1,0 +1,10 @@
+<div class="category-card">
+  <div class="category-icon">
+    <i class="fas fa-{{ include.icon }}"></i>
+  </div>
+  <div class="category-content">
+    <h2 class="category-title">{{ include.name }}</h2>
+    <p class="category-description">{{ include.description }}</p>
+    <a href="{{ '/categories/' | append: include.id | relative_url }}" class="btn-view">View Category</a>
+  </div>
+</div>

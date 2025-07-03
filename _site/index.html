@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home | PDF Library</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="/assets/css/main.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <div class="header-left">
+        <h1 class="site-title"><a href="/">PDF Library</a></h1>
+      </div>
+      
+      <nav class="site-nav">
+        <a href="/">Home</a>
+        <a href="/categories/">Categories</a>
+        <a href="/subjects/">Subjects</a>
+        <a href="/about/">About</a>
+      </nav>
+      
+      <div class="header-right">
+        <button class="search-toggle" aria-label="Toggle search">
+          <i class="fas fa-search"></i>
+        </button>
+        <button class="theme-toggle" aria-label="Toggle theme">
+          <i class="fas fa-moon"></i>
+        </button>
+        <button class="menu-toggle" aria-label="Toggle menu">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </div>
+    
+    <div class="search-container">
+      <div class="container">
+        <form class="search-form" action="/search/">
+          <input type="text" id="search-input" name="q" placeholder="Search PDFs...">
+          <button type="submit"><i class="fas fa-search"></i></button>
+        </form>
+      </div>
+    </div>
+  </header>
+
+  <main class="site-content">
+    <section class="hero">
+  <div class="container">
+    <h1>Welcome to PDF Library</h1>
+    <p>Access, view, and download PDF resources for various subjects</p>
+    <div class="hero-search">
+      <form class="search-form-large" action="/search/">
+        <input type="text" name="q" placeholder="Search for PDFs...">
+        <button type="submit"><i class="fas fa-search"></i> Search</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section class="featured-categories">
+  <div class="container">
+    <h2 class="section-title">Browse by Category</h2>
+    
+    <div class="category-grid">
+      
+        <div class="category-card">
+  <div class="category-icon">
+    <i class="fas fa-cogs"></i>
+  </div>
+  <div class="category-content">
+    <h2 class="category-title">Engineering</h2>
+    <p class="category-description">Engineering papers and resources</p>
+    <a href="/categories/engineering" class="btn-view">View Category</a>
+  </div>
+</div>
+      
+        <div class="category-card">
+  <div class="category-icon">
+    <i class="fas fa-heartbeat"></i>
+  </div>
+  <div class="category-content">
+    <h2 class="category-title">Medical Sciences</h2>
+    <p class="category-description">Medical papers and resources</p>
+    <a href="/categories/medical" class="btn-view">View Category</a>
+  </div>
+</div>
+      
+        <div class="category-card">
+  <div class="category-icon">
+    <i class="fas fa-laptop-code"></i>
+  </div>
+  <div class="category-content">
+    <h2 class="category-title">Computer Science</h2>
+    <p class="category-description">Computer Science papers and resources</p>
+    <a href="/categories/computer-science" class="btn-view">View Category</a>
+  </div>
+</div>
+      
+        <div class="category-card">
+  <div class="category-icon">
+    <i class="fas fa-atom"></i>
+  </div>
+  <div class="category-content">
+    <h2 class="category-title">Physics</h2>
+    <p class="category-description">Physics papers and resources</p>
+    <a href="/categories/physics" class="btn-view">View Category</a>
+  </div>
+</div>
+      
+    </div>
+  </div>
+</section>
+
+<section class="popular-subjects">
+  <div class="container">
+    <h2 class="section-title">Popular Subjects</h2>
+    
+    <div class="subject-grid">
+      
+        <div class="subject-card">
+  <h2 class="subject-title">Data Structures</h2>
+  <p class="subject-description">Study of organizing and storing data</p>
+  <p class="subject-meta">3 PDFs</p>
+  <a href="/subjects/data-structures" class="btn-view">View Subject</a>
+</div>
+      
+        <div class="subject-card">
+  <h2 class="subject-title">Algorithms</h2>
+  <p class="subject-description">Study of computational problem-solving methods</p>
+  <p class="subject-meta">3 PDFs</p>
+  <a href="/subjects/algorithms" class="btn-view">View Subject</a>
+</div>
+      
+        <div class="subject-card">
+  <h2 class="subject-title">Mechanics</h2>
+  <p class="subject-description">Study of motion and forces</p>
+  <p class="subject-meta">3 PDFs</p>
+  <a href="/subjects/mechanics" class="btn-view">View Subject</a>
+</div>
+      
+        <div class="subject-card">
+  <h2 class="subject-title">Circuit Theory</h2>
+  <p class="subject-description">Study of electrical circuits</p>
+  <p class="subject-meta">3 PDFs</p>
+  <a href="/subjects/circuits" class="btn-view">View Subject</a>
+</div>
+      
+        <div class="subject-card">
+  <h2 class="subject-title">Anatomy</h2>
+  <p class="subject-description">Study of body structure</p>
+  <p class="subject-meta">3 PDFs</p>
+  <a href="/subjects/anatomy" class="btn-view">View Subject</a>
+</div>
+      
+    </div>
+    
+    <div class="section-footer">
+      <a href="/subjects/" class="btn-primary">View All Subjects</a>
+    </div>
+  </div>
+</section>
+
+<section class="recent-pdfs">
+  <div class="container">
+    <h2 class="section-title">Recently Added PDFs</h2>
+    
+    <div class="pdf-grid">
+      
+      
+      
+      
+      
+      
+      
+        
+        
+        <!-- Pre-calculate URLs using assign statements -->
+        
+        
+        
+        
+        <div class="pdf-card">
+  <div class="pdf-icon">
+    <i class="fas fa-file-pdf"></i>
+  </div>
+  <div class="pdf-content">
+    <h3 class="pdf-title">Quantum Mechanics</h3>
+    <p class="pdf-meta">
+      <span class="pdf-pages">50 pages</span>
+      <span class="pdf-date">March 20, 2025</span>
+    </p>
+    <div class="pdf-actions">
+      <a href="/pdf-viewer//quantum-mechanics" class="btn-view">View</a>
+      <a href="/assets/pdfs/quantum-mechanics.pdf" class="btn-download" download>Download</a>
+    </div>
+  </div>
+</div>
+      
+        
+        
+        <!-- Pre-calculate URLs using assign statements -->
+        
+        
+        
+        
+        <div class="pdf-card">
+  <div class="pdf-icon">
+    <i class="fas fa-file-pdf"></i>
+  </div>
+  <div class="pdf-content">
+    <h3 class="pdf-title">Cardiovascular System</h3>
+    <p class="pdf-meta">
+      <span class="pdf-pages">40 pages</span>
+      <span class="pdf-date">March 18, 2025</span>
+    </p>
+    <div class="pdf-actions">
+      <a href="/pdf-viewer//cardiovascular-system" class="btn-view">View</a>
+      <a href="/assets/pdfs/cardiovascular-system.pdf" class="btn-download" download>Download</a>
+    </div>
+  </div>
+</div>
+      
+        
+        
+        <!-- Pre-calculate URLs using assign statements -->
+        
+        
+        
+        
+        <div class="pdf-card">
+  <div class="pdf-icon">
+    <i class="fas fa-file-pdf"></i>
+  </div>
+  <div class="pdf-content">
+    <h3 class="pdf-title">Graph Algorithms</h3>
+    <p class="pdf-meta">
+      <span class="pdf-pages">42 pages</span>
+      <span class="pdf-date">March 15, 2025</span>
+    </p>
+    <div class="pdf-actions">
+      <a href="/pdf-viewer//graph-algorithms" class="btn-view">View</a>
+      <a href="/assets/pdfs/graph-algorithms.pdf" class="btn-download" download>Download</a>
+    </div>
+  </div>
+</div>
+      
+        
+        
+        <!-- Pre-calculate URLs using assign statements -->
+        
+        
+        
+        
+        <div class="pdf-card">
+  <div class="pdf-icon">
+    <i class="fas fa-file-pdf"></i>
+  </div>
+  <div class="pdf-content">
+    <h3 class="pdf-title">Digital Circuits</h3>
+    <p class="pdf-meta">
+      <span class="pdf-pages">44 pages</span>
+      <span class="pdf-date">March 08, 2025</span>
+    </p>
+    <div class="pdf-actions">
+      <a href="/pdf-viewer//digital-circuits" class="btn-view">View</a>
+      <a href="/assets/pdfs/digital-circuits.pdf" class="btn-download" download>Download</a>
+    </div>
+  </div>
+</div>
+      
+        
+        
+        <!-- Pre-calculate URLs using assign statements -->
+        
+        
+        
+        
+        <div class="pdf-card">
+  <div class="pdf-icon">
+    <i class="fas fa-file-pdf"></i>
+  </div>
+  <div class="pdf-content">
+    <h3 class="pdf-title">Trees and Graphs</h3>
+    <p class="pdf-meta">
+      <span class="pdf-pages">40 pages</span>
+      <span class="pdf-date">March 05, 2025</span>
+    </p>
+    <div class="pdf-actions">
+      <a href="/pdf-viewer//trees-graphs" class="btn-view">View</a>
+      <a href="/assets/pdfs/trees-graphs.pdf" class="btn-download" download>Download</a>
+    </div>
+  </div>
+</div>
+      
+        
+        
+        <!-- Pre-calculate URLs using assign statements -->
+        
+        
+        
+        
+        <div class="pdf-card">
+  <div class="pdf-icon">
+    <i class="fas fa-file-pdf"></i>
+  </div>
+  <div class="pdf-content">
+    <h3 class="pdf-title">Fluid Mechanics</h3>
+    <p class="pdf-meta">
+      <span class="pdf-pages">38 pages</span>
+      <span class="pdf-date">February 22, 2025</span>
+    </p>
+    <div class="pdf-actions">
+      <a href="/pdf-viewer//fluid-mechanics" class="btn-view">View</a>
+      <a href="/assets/pdfs/fluid-mechanics.pdf" class="btn-download" download>Download</a>
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+</section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-left">
+          <h2>PDF Library</h2>
+          <p>A PDF library with embedded viewers and download functionality</p>
+        </div>
+        
+        <div class="footer-right">
+          <div class="footer-links">
+            <h3>Quick Links</h3>
+            <ul>
+              <li><a href="/">Home</a></li>
+              <li><a href="/categories/">Categories</a></li>
+              <li><a href="/subjects/">Subjects</a></li>
+              <li><a href="/about/">About</a></li>
+            </ul>
+          </div>
+          
+          <div class="footer-links">
+            <h3>Categories</h3>
+            <ul>
+              
+                <li><a href="/categories/engineering">Engineering</a></li>
+              
+                <li><a href="/categories/medical">Medical Sciences</a></li>
+              
+                <li><a href="/categories/computer-science">Computer Science</a></li>
+              
+                <li><a href="/categories/physics">Physics</a></li>
+              
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2025 PDF Library. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/assets/js/main.js"></script>
+</body>
+</html>

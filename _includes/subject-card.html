@@ -1,0 +1,6 @@
+<div class="subject-card">
+  <h2 class="subject-title">{{ include.name }}</h2>
+  <p class="subject-description">{{ include.description }}</p>
+  <p class="subject-meta">{{ include.pdf_count }} PDF{% if include.pdf_count != 1 %}s{% endif %}</p>
+  <a href="{{ '/subjects/' | append: include.id | relative_url }}" class="btn-view">View Subject</a>
+</div>
