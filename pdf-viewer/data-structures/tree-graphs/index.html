@@ -1,0 +1,235 @@
+---
+layout: pdf-viewer
+title: "Trees & Graphs - PDF Viewer"
+subject: "data-structures"
+topic: "trees-graphs"
+pdf_file: "trees-graphs.pdf"
+permalink: "/pdf-viewer/data-structures/trees-graphs/"
+description: "Explore the concepts of Trees and Graphs in Data Structures with this comprehensive PDF guide. Learn about binary trees, graph traversal algorithms, and more."
+tags: ["data structures", "trees", "graphs", "algorithms"]
+---
+
+<div class="pdf-viewer-container">
+  <div class="pdf-header">
+    <nav class="pdf-breadcrumb">
+      <a href="{{ '/' | relative_url }}">Home</a>
+      <span>/</span>
+      <a href="{{ '/subjects/' | relative_url }}">Subjects</a>
+      <span>/</span>
+      <a href="{{ '/subjects/data-structures/' | relative_url }}">Data Structures</a>
+      <span>/</span>
+      <span class="current">Trees & Graphs</span>
+    </nav>
+    
+    <div class="pdf-actions">
+      <a href="{{ '/assets/pdfs/' | append: page.pdf_file | relative_url }}" 
+         class="btn btn-download" download>
+        <svg width="16" height="16" fill="currentColor">
+          <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/>
+          <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/>
+        </svg>
+        Download PDF
+      </a>
+      
+      <button class="btn btn-fullscreen" onclick="toggleFullscreen()">
+        <svg width="16" height="16" fill="currentColor">
+          <path d="M5.5 0a.5.5 0 0 1 .5.5v4A1.5 1.5 0 0 1 4.5 6h-4a.5.5 0 0 1 0-1h4a.5.5 0 0 0 .5-.5v-4a.5.5 0 0 1 .5-.5zM10 .5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-1 0V1.707l-3.146 3.147a.5.5 0 0 1-.708-.708L13.293 1H10.5a.5.5 0 0 1-.5-.5zM0 10.5a.5.5 0 0 1 .5-.5h4A1.5 1.5 0 0 1 6 11.5v4a.5.5 0 0 1-1 0v-4a.5.5 0 0 0-.5-.5h-4a.5.5 0 0 1-.5-.5zM10 15.5a.5.5 0 0 1 .5.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 0-.5.5v4a.5.5 0 0 1-1 0v-4A1.5 1.5 0 0 1 10.5 15h3.793l-3.147-3.146a.5.5 0 0 1 .708-.708L14 14.293V10.5a.5.5 0 0 1 .5-.5z"/>
+        </svg>
+        Fullscreen
+      </button>
+    </div>
+  </div>
+
+  <div class="pdf-viewer-wrapper">
+    <iframe id="pdf-frame" 
+            src="{{ '/assets/pdfs/' | append: page.pdf_file | relative_url }}"
+            width="100%" 
+            height="800px"
+            style="border: none; border-radius: 8px;">
+      <p>Your browser does not support PDF viewing. 
+         <a href="{{ '/assets/pdfs/' | append: page.pdf_file | relative_url }}" download>
+           Download the PDF
+         </a>
+      </p>
+    </iframe>
+  </div>
+  
+  <div class="pdf-navigation">
+    <div class="related-topics">
+      <h3>Related Topics</h3>
+      <div class="topic-links">
+        <a href="{{ '/subjects/data-structures/' | relative_url }}" class="topic-link">
+          Back to Data Structures
+        </a>
+        <a href="{{ '/pdf-viewer/data-structures/arrays-linked-lists/' | relative_url }}" class="topic-link">
+          Arrays & Linked Lists
+        </a>
+        <a href="{{ '/pdf-viewer/data-structures/sorting-algorithms/' | relative_url }}" class="topic-link">
+          Sorting Algorithms
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+function toggleFullscreen() {
+  const frame = document.getElementById('pdf-frame');
+  const container = document.querySelector('.pdf-viewer-wrapper');
+  
+  if (!document.fullscreenElement) {
+    container.requestFullscreen().catch(err => {
+      console.log('Error attempting to enable fullscreen:', err);
+    });
+  } else {
+    document.exitFullscreen();
+  }
+}
+
+// Handle fullscreen changes
+document.addEventListener('fullscreenchange', function() {
+  const frame = document.getElementById('pdf-frame');
+  if (document.fullscreenElement) {
+    frame.style.height = '100vh';
+  } else {
+    frame.style.height = '800px';
+  }
+});
+</script>
+
+<style>
+.pdf-viewer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.pdf-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.pdf-breadcrumb {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.pdf-breadcrumb a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.pdf-breadcrumb a:hover {
+  text-decoration: underline;
+}
+
+.pdf-breadcrumb span {
+  margin: 0 0.5rem;
+}
+
+.pdf-breadcrumb .current {
+  font-weight: 500;
+  color: #333;
+}
+
+.pdf-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border: 1px solid #ddd;
+  border-radius: 0.375rem;
+  text-decoration: none;
+  font-size: 0.875rem;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+.btn-download {
+  background-color: #28a745;
+  color: white;
+  border-color: #28a745;
+}
+
+.btn-download:hover {
+  background-color: #218838;
+  border-color: #1e7e34;
+}
+
+.btn-fullscreen {
+  background-color: #6c757d;
+  color: white;
+  border-color: #6c757d;
+}
+
+.btn-fullscreen:hover {
+  background-color: #5a6268;
+  border-color: #545b62;
+}
+
+.pdf-viewer-wrapper {
+  background: #f8f9fa;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 2rem;
+}
+
+.pdf-navigation {
+  background: #f8f9fa;
+  border-radius: 8px;
+  padding: 1.5rem;
+}
+
+.related-topics h3 {
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.topic-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.topic-link {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 0.375rem;
+  text-decoration: none;
+  color: #333;
+  transition: all 0.2s;
+}
+
+.topic-link:hover {
+  background: #007bff;
+  color: white;
+  border-color: #007bff;
+}
+
+@media (max-width: 768px) {
+  .pdf-header {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+  
+  .topic-links {
+    flex-direction: column;
+  }
+  
+  .topic-link {
+    text-align: center;
+  }
+}
+</style>

@@ -1,0 +1,53 @@
+<!-- URL Redirect System for PDF Viewer -->
+<script>
+(function() {
+  // URL mapping for PDF viewer redirects
+  const urlMappings = {
+    '/pdf-viewer/data-structures/trees-graphs': '/pdf-viewer/data-structures/trees-graphs/',
+    '/pdf-viewer/data-structures/arrays-linked-lists': '/pdf-viewer/data-structures/arrays-linked-lists/',
+    '/pdf-viewer/data-structures/sorting-algorithms': '/pdf-viewer/data-structures/sorting-algorithms/',
+    '/pdf-viewer/data-structures/graph-algorithms': '/pdf-viewer/data-structures/graph-algorithms/',
+    '/pdf-viewer/digital-circuits/basic-circuits': '/pdf-viewer/digital-circuits/basic-circuits/',
+    '/pdf-viewer/digital-circuits/ac-circuits': '/pdf-viewer/digital-circuits/ac-circuits/'
+  };
+
+  // Check current path
+  const currentPath = window.location.pathname;
+  
+  // Remove trailing slash for comparison
+  const normalizedPath = currentPath.replace(/\/$/, '');
+  
+  // Check if redirect is needed
+  if (urlMappings[normalizedPath]) {
+    const newUrl = window.location.origin + urlMappings[normalizedPath];
+    window.location.replace(newUrl);
+  }
+  
+  // Handle legacy PDF viewer URLs
+  if (currentPath.includes('/pdf-viewer/') && !currentPath.includes('/index.html')) {
+    const pathParts = currentPath.split('/');
+    const subject = pathParts[2]; // e.g., 'data-structures'
+    const topic = pathParts[3]; // e.g., 'trees-graphs'
+    
+    if (subject && topic) {
+      // Check if the nested structure exists
+      const nestedUrl = `/pdf-viewer/${subject}/${topic}/`;
+      
+      // Try to fetch the nested URL
+      fetch(nestedUrl, { method: 'HEAD' })
+        .then(response => {
+          if (response.ok) {
+            window.location.replace(nestedUrl);
+          } else {
+            // Redirect to subject page if nested doesn't exist
+            window.location.replace(`/subjects/${subject}/`);
+          }
+        })
+        .catch(() => {
+          // Fallback to subjects page
+          window.location.replace(`/subjects/${subject}/`);
+        });
+    }
+  }
+})();
+</script>

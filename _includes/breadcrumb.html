@@ -1,0 +1,73 @@
+<nav class="breadcrumb" aria-label="breadcrumb">
+  <ol class="breadcrumb-list">
+    <li class="breadcrumb-item">
+      <a href="{{ '/' | relative_url }}">Home</a>
+    </li>
+    
+    {% assign url_parts = page.url | remove: '/index.html' | split: '/' %}
+    {% assign current_path = '' %}
+    
+    {% for part in url_parts %}
+      {% unless part == '' %}
+        {% assign current_path = current_path | append: '/' | append: part %}
+        {% assign is_current = false %}
+        
+        {% if forloop.last %}
+          {% assign is_current = true %}
+        {% endif %}
+        
+        <li class="breadcrumb-item{% if is_current %} active{% endif %}">
+          {% if is_current %}
+            <span aria-current="page">{{ part | replace: '-', ' ' | capitalize }}</span>
+          {% else %}
+            <a href="{{ current_path | append: '/' | relative_url }}">
+              {{ part | replace: '-', ' ' | capitalize }}
+            </a>
+          {% endif %}
+        </li>
+      {% endunless %}
+    {% endfor %}
+  </ol>
+</nav>
+
+<style>
+.breadcrumb {
+  margin-bottom: 1rem;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.breadcrumb-list {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: 0.9rem;
+}
+
+.breadcrumb-item {
+  display: flex;
+  align-items: center;
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+  content: '/';
+  margin: 0 0.5rem;
+  color: #666;
+}
+
+.breadcrumb-item a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.breadcrumb-item a:hover {
+  text-decoration: underline;
+}
+
+.breadcrumb-item.active span {
+  color: #666;
+  font-weight: 500;
+}
+</style>

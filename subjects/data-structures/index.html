@@ -1,0 +1,31 @@
+---
+layout: subject
+title: "Data Structures"
+subject: "data-structures"
+category: "computer-science"
+description: "Comprehensive collection of data structures materials and resources"
+permalink: /subjects/data-structures/
+---
+
+<div class="subject-header">
+  <h1>{{ page.title }}</h1>
+  <p class="subject-description">{{ page.description }}</p>
+</div>
+
+<div class="pdfs-grid">
+  {% for pdf in site.data.subjects %}
+    {% if pdf.subject == page.subject %}
+      {% include pdf-card.html pdf=pdf %}
+    {% endif %}
+  {% endfor %}
+</div>
+
+<div class="subcategories">
+  <h2>Subtopics</h2>
+  <div class="subcategory-grid">
+    <a href="{{ '/subjects/data-structures/trees-graphs/' | relative_url }}" class="subcategory-card">
+      <h3>Trees & Graphs</h3>
+      <p>Advanced data structures including trees, graphs, and related algorithms</p>
+    </a>
+  </div>
+</div>
